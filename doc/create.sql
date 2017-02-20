@@ -26,3 +26,10 @@ CREATE TABLE fav_web_app (
   webUrl      VARCHAR(100),
   webState    VARCHAR(100)
 );
+
+INSERT INTO  fav_client (client_name, client_id, client_secret) VALUE ('client001', 'client_id_001', 'client_secret_001');
+INSERT INTO  fav_client (client_name, client_id, client_secret) VALUE ('client002', 'client_id_002', 'client_secret_002');
+INSERT INTO  fav_client (client_name, client_id, client_secret) VALUE ('client003', 'client_id_003', 'client_secret_003');
+
+
+INSERT INTO  fav_user (username, password) VALUE ('admin@admin.com', 'password');

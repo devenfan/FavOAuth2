@@ -36,10 +36,13 @@
 			cache : false,
 			async : false,
 			success : function(json){
-				alert("审批成功！");
+				alert(JSON.stringify(json));
+                if(json.success) {
+                    window.parent.frames["mainFrame"].location.reload();
+                }
 			},
 			error: function(request) {
-                alert("Connection error");
+                alert("Connection error: " + JSON.stringify(request));
             }
 		});
   	}

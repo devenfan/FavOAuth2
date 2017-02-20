@@ -17,7 +17,8 @@
   <meta name="apple-mobile-web-app-title" content="Amaze UI" />
   <link rel="stylesheet" href="<%=basePath %>AmazeUI-2.1.0/assets/css/amazeui.min.css"/>
   <link rel="stylesheet" href="<%=basePath %>AmazeUI-2.1.0/assets/css/admin.css">
-  <script type="text/javascript" src="<%=basePath %>assets/js/jquery-1.11.1.js"></script>
+  <%--<script type="text/javascript" src="<%=basePath %>assets/js/jquery-1.11.1.js"></script>--%>
+    <script type="text/javascript" src="<%=basePath %>AmazeUI-2.1.0/assets/js/jquery.min.js"></script>
   
   <script type="text/javascript">
   	function saveSiteApply(){  
@@ -29,11 +30,14 @@
 			timeout: 50000,
 			cache: false,
 			async: false,
-			success: function(json){
-				alert("申請成功！");
+			success: function(outputData){
+				alert(JSON.stringify(outputData));
+                if(outputData.success) {
+                    window.parent.frames["mainFrame"].location.reload();
+                }
 			},
-			error: function(request) {
-                alert("Connection error");
+			error: function(errorData) {
+                alert("Connection error: " + JSON.stringify(errorData));
             }
 		});
   	}
@@ -93,7 +97,7 @@
 	      </div>
 	     </div>
 	    </div>
-	   <script src="<%=basePath %>lhgdialog/_demo/jquery-1.7.2.min.js"></script>
-  	   <script type="text/javascript" src="<%=basePath %>lhgdialog/lhgdialog/lhgdialog.min.js"></script>
+	   <%--<script src="<%=basePath %>lhgdialog/_demo/jquery-1.7.2.min.js"></script>--%>
+  	   <%--<script type="text/javascript" src="<%=basePath %>lhgdialog/lhgdialog/lhgdialog.min.js"></script>--%>
 </body>
 </html>

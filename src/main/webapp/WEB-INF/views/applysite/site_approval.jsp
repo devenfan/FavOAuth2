@@ -35,11 +35,14 @@
 			timeout : 50000,
 			cache : false,
 			async : false,
-			success : function(json){
-				alert("审批成功！");
-			},
-			error: function(request) {
-                alert("Connection error");
+            success : function(json){
+                alert(JSON.stringify(json));
+                if(json.success) {
+                    window.parent.frames["mainFrame"].location.reload();
+                }
+            },
+            error: function(request) {
+                alert("Connection error: " + JSON.stringify(request));
             }
 		});
   	}

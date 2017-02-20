@@ -18,4 +18,6 @@ public interface IFavUserDao {
 
 	FavUser findByUsername(String username);
 
+    FavUser findByUsernameAndPassword(String username, String password);
+
 }

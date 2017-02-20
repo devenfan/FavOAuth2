@@ -86,4 +86,15 @@ public class FavUserDaoImpl implements IFavUserDao {
 		return userList.get(0);
 	}
 
+    @Override
+    public FavUser findByUsernameAndPassword(String username, String password) {
+        String sql = "select id, username, password, salt from fav_user where username=? and password=?";
+        List<FavUser> userList = jdbcTemplate.query(sql,
+                new BeanPropertyRowMapper<FavUser>(FavUser.class), username, password);
+        if (userList.size() == 0) {
+            return null;
+        }
+        return userList.get(0);
+    }
+
 }

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.oltu.oauth2.common.OAuth;
+import org.apache.oltu.oauth2.common.message.types.TokenType;
 import org.apache.oltu.oauth2.common.token.BasicOAuthToken;
 import org.apache.oltu.oauth2.common.token.OAuthToken;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -21,7 +22,7 @@ public class OAuth2LoginFilter extends OncePerRequestFilter {
 		
 		//创建令牌
 		String accessToken = request.getParameter(OAuth.OAUTH_CODE);
-		BasicOAuthToken oAuthToken = new BasicOAuthToken(accessToken);
+		BasicOAuthToken oAuthToken = new BasicOAuthToken(accessToken, TokenType.BEARER.toString());
 		
 	}
 
